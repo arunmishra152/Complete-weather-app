@@ -5,6 +5,7 @@ const hbs = require('hbs');
 const geocode = require('./utils/geocode');
 const forcast = require('./utils/forcast');
 const request = require('request');
+const port = process.env.PORT || 3000
 
 console.log(__dirname);
 console.log(__filename);
@@ -79,25 +80,6 @@ app.get('*',(req,res)=>{
     });
 })
 
-
-
-// app.get('/help',(req,res)=>{
-//     res.send('<h1>this is help routing</h1>');
-// });
-
-// app.get('/about',(req,res)=>{
-//     res.send([{
-//         name: "Arun",
-//         age: 23,
-//         address: "Noida;"
-//     },{
-//         name: "Rahul",
-//         age: 22,
-//         address: "Delhi"
-//     }
-// ])
-// });
-
-app.listen(3000,()=>{
-    console.log('server is strated');
+app.listen(port,()=>{
+    console.log('server is strated on port ' + port);
 })
