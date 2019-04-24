@@ -8,9 +8,9 @@ const forcast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('unable to find the location', undefined);
         } else {
-            callback(undefined, {
-                temperature: body.currently.temperature
-            })
+            callback(undefined, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' degrees out. There is a ' + body.currently.precipProbability + '% chance of raining')
+               // temperature: body.currently.temperature
+           
         }
     })
 }

@@ -21,7 +21,7 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(publicDirPath));
 app.get('',(req,res)=>{
     res.render('index', {
-        title: 'Weather App',
+        title: 'Weather',
         name: 'Arun Mishra'
     });
 });
@@ -55,12 +55,14 @@ app.get('/weather',(req,res)=>{
             if(error){
               return  res.send(error);
             }
+            res.send({
+                latitude: latitude,
+                location,
+                address: address,
+                forcast: forcastData
+            })
         })
-        res.send({
-            latitude: latitude,
-            location,
-            address: address
-        })
+       
     })
 });
 

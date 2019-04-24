@@ -9,7 +9,7 @@ weatherForm.addEventListener('submit', (e)=>{
     e.preventDefault();
     const location = search.value
     if(!location){
-        return console.log('please enter location');
+        return messageOne.textContent = 'please enter location';
     }
     
     fetch('/weather?address='+ location ).then((response)=>{
